@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[35,)"
+license="All rights reserved"
+
+[[mods]]
+modId="zoom"
+version="${file.jarVersion}"
+displayName="Zoom"
+authors="Pursuit"
+description='''
+A mod that adds a zoom key to the game
+'''
+
+[[dependencies.zoom]]
+    modId="forge"
+    mandatory=true
+    versionRange="[35,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.zoom]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="1.16.4"
+    ordering="NONE"
+    side="BOTH"

@@ -1,0 +1,89 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url = 'https://maven.minecraftforge.net' }
+        maven { url = 'https://maven.parchmentmc.org' }
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'org.parchmentmc:librarian:1.+'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
+
+version = modVersion
+group = 'zoom'
+sourceCompatibility = '1.8'
+
+compileJava.options.encoding = 'UTF-8'
+
+minecraft {
+    mappings channel: mappingsChannel, version: mappingsVersion
+    accessTransformer = file("src/main/resources/META-INF/accesstransformer.cfg")
+
+    runs {
+        client {
+            workingDirectory project.file('environment')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                zoom {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('environment')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                zoom {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file('environment')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            args '--mod', 'zoom', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+            mods {
+                zoom {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraftVersion}-${forgeVersion}"
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title": "Zoom",
+                "Specification-Vendor": "Pursuit",
+                "Specification-Version": "${version}",
+                "Implementation-Title": rootProject.name,
+                "Implementation-Version": "${version}",
+                "Implementation-Vendor" : "Pursuit"
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')
