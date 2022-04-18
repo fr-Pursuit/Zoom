@@ -1,7 +1,7 @@
 package fr.pursuit.minecraft.zoom.client;
 
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.client.event.FOVUpdateEvent;
+import net.minecraftforge.client.event.FOVModifierEvent;
 import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -14,7 +14,7 @@ public class EventHandler
 	private boolean hadSmoothCamera = false;
 	
 	@SubscribeEvent
-	public void onFOVUpdate(FOVUpdateEvent event)
+	public void onFOVUpdate(FOVModifierEvent event)
 	{
 		boolean isZooming = KeyBindings.ZOOM.isDown();
 		

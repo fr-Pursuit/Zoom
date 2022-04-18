@@ -1,9 +1,9 @@
 package fr.pursuit.minecraft.zoom.client;
 
-import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.client.KeyMapping;
 import net.minecraftforge.client.settings.KeyConflictContext;
 
-public class InGameKeyBinding extends KeyBinding
+public class InGameKeyBinding extends KeyMapping
 {
 	public InGameKeyBinding(String name, int key, String category)
 	{
