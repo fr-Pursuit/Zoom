@@ -1,7 +1,7 @@
-package fr.pursuit.minecraft.zoom;
+package zoom;
 
-import fr.pursuit.minecraft.zoom.client.EventHandler;
-import fr.pursuit.minecraft.zoom.client.KeyBindings;
+import zoom.client.EventHandler;
+import zoom.client.KeyBindings;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
