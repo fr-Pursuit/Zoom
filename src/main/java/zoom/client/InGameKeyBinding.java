@@ -1,4 +1,4 @@
-package fr.pursuit.minecraft.zoom.client;
+package zoom.client;
 
 import net.minecraft.client.KeyMapping;
 import net.minecraftforge.client.settings.KeyConflictContext;

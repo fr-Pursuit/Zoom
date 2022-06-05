@@ -1,4 +1,4 @@
-package fr.pursuit.minecraft.zoom.client;
+package zoom.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.FOVModifierEvent;
